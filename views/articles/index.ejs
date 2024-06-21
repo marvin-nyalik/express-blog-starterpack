@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Blog</title>
+    <style>
+      body {
+        font-family: Poppins, "Lucida Sans", "Lucida Sans Regular",
+          "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title container mx-auto px-4">
+      <h1 class="text-3xl font-semibold mb-4">Blogs</h1>
+      <a
+        href="articles/new"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg my-2"
+      >
+        New Article
+      </a>
+    </div>
+
+    <section>
+      <% articles.forEach(article => { %>
+      <div class="max-w-sm rounded overflow-hidden shadow-lg my-2">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"><%= article.title %></div>
+          <p class="text-gray-700 text-base"><%= article.desc %></p>
+          <p class="text-gray-700 text-base">
+            <%= article.createdAt.toLocaleDateString() %>
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span
+            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+            >Read More</span
+          >
+          <span
+            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+            >Edit</span
+          >
+          <span
+            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+            >Delete</span
+          >
+        </div>
+      </div>
+      <% }) %>
+    </section>
+  </body>
+</html>
